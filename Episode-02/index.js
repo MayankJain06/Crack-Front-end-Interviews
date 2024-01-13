@@ -15,14 +15,13 @@ myName( "Telangana");
 
 // Creating our own bind method
 
-Function.prototype.mybind= function(...arguments) {
+Function.prototype.mybind= function(...args) {
     // this will point to printFullName
-    let obj= this;
-    console.log(arguments);
-    params=arguments.slice(1);
+    let obj= this,
+    params=args.slice(1);
     // the params which we receive are in the form of arrays hence we are using apply method below since it takes array of arguments as params
     return function(...args2) {
-    obj.apply(arguments[0], [...params, ...args2]);
+    obj.apply(args[0], [...params, ...args2]);
  
     }
 }
